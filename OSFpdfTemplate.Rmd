@@ -1,0 +1,66 @@
+---
+output: pdf_document
+---
+
+```{r include=FALSE}
+
+# Following
+# https://www.r-bloggers.com/mail-merge-with-rmarkdown/
+
+library("readr")
+
+SPNHCform[is.na(SPNHCform)] <- ""
+
+title <- SPNHCform$`Abstract Title`[i]
+
+author1 <- gsub("\\s+", " ",
+                paste(SPNHCform$`First Name`[i], 
+                      SPNHCform$`Middle Initial`[i],
+                      SPNHCform$`Last Name`[i]))
+if (SPNHCform$`Name (First, MI, Last)`[i] == author1) {
+  author2 <- SPNHCform$`For additional co-authors please list here as they should appear in citation`[i]
+} else {
+  author2 <- SPNHCform$`Name (First, MI, Last)`[i]
+}
+
+if (SPNHCform$`For additional co-authors please list here as they should appear in citation`[i] == author2) {
+  author3 <- ""
+} else {
+  author3 <- SPNHCform$`For additional co-authors please list here as they should appear in citation`[i]
+}
+
+if (nchar(author2) > 0) {
+  if (nchar(author3) > 0) {
+    authors <- paste0(author1, ", ", author2, ", ", author3)    
+  } else {
+    authors <- paste0(author1, ", ", author2)    
+  }
+} else {
+  authors <- author1
+}
+
+affiliation <- gsub("(, )+", ", ",
+                    paste0(SPNHCform$Department[i], ", ",
+                           SPNHCform$Institution[i], ", ",
+                           SPNHCform$`Street Address`[i], ", ",
+                           SPNHCform$City[i], ", ",
+                           SPNHCform$State[i], ", ",
+                           SPNHCform$`Postal Code`[i], ", ",
+                           SPNHCform$Country[i]))
+
+abstract <- SPNHCform$`Abstract Text`[i]
+
+keywords <- SPNHCform$`Abstract Keywords (comma-separated list of at least three keywords describing your talk)`[i]
+
+```
+
+Title: `r title`
+
+Author(s): `r authors`
+
+Affiliation: `r affiliation`
+
+Abstract: `r abstract`
+
+Keywords: `r keywords`
+

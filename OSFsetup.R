@@ -29,7 +29,7 @@ SPNHCform$PDFname <- iconv(SPNHCform$PDFname, from = "UTF-8", to = 'ASCII//TRANS
 
 # Prep PDFs ####
 # Set Rmd template for PDF
-rmd_stub <- "OSFemailTemplate.Rmd"
+rmd_stub <- "OSFpdfTemplate.Rmd"
 
 for (i in 1:NROW(SPNHCform)) {
   
