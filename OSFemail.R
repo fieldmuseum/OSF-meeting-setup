@@ -14,14 +14,23 @@ library("mailR")
 #    + attachment = PDF of title/author/abstract
 #    + body = abstract text
 
+# Setup Notes: ####
+# 
+#  In your '.Renviron' file, add these lines:
+#   SENDER = "your@email.com"
+#   RECIP1 = "recipient1@address.com"
+#   RECIP2 = "recipient2@address.com"
+#   SENDPW = "your-email-password"
+#
+# In your gmail account, "allow less secure apps" - https://myaccount.google.com/lesssecureapps
+# 
+
 sender <- Sys.getenv("SENDER")
 recipients <- c(Sys.getenv("RECIP1"), Sys.getenv("RECIP2"))
 password <- Sys.getenv("SENDPW")
 
 
 for (i in 1:NROW(SPNHCform)) {
-
-  # Need to "allow less secure apps" - https://myaccount.google.com/lesssecureapps
   
   send.mail(from = sender,
             to = recipients,
