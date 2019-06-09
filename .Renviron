@@ -1,0 +1,7 @@
+OSF_PAT = "pasted-key-from-OSF"
+
+SENDER = "your@email.com"
+RECIP1 = "recipient1@email.com"
+RECIP2 = "recipient2@email.com"
+
+SENDPW = "your-email-pw"
