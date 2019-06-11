@@ -1,4 +1,4 @@
-# SPNHC-OSF-setup
+# OSF-meeting-setup
 
 These scripts were used to batch-import/edit presentation-pages (via the OSF-API) for the [2019 OSF SPNHC meeting site](https://osf.io/view/SPNHC2019), and should be generalizable to any OSF meeting set-up. 
 
