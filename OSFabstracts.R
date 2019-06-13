@@ -1,4 +1,4 @@
-# Retrieve OSF titles & abstracts/wikis
+# Retrieve OSF titles & abstract/wiki
 
 library("httr")
 library("osfr")
